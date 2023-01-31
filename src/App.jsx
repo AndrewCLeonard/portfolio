@@ -1,59 +1,64 @@
 import React, { useState } from "react";
-// import Nav from "./components/Nav";
+import ButtonTestIndividualState from "./components/ButtonTestIndividualState";
+import ButtonTest from "./components/ButtonTestLiftedState";
 
-const categories = [
-  {
-    name: "About Me",
-    description: "Why does Andrew write code?",
-  },
-  { name: "Portfolio", description: "Collection of my work" },
-];
-
-// export default function navCategories() {
-//   const listCategories = categories.map((category) => {
-//     <li key={category.name}>{category.name}</li>;
-//   });
-//   return <ul>{listCategories}</ul>;
-// }
-
-export default function navCategories() {
+export default function App() {
   const [count, setCount] = useState(0);
-
-  const listCategories = categories.map((category) => (
-    <li key={category.name}>{category.name}</li>
-  ));
 
   function handleClick() {
     setCount(count + 1);
   }
 
   return (
-    <>
+    <div>
+      <h1>Update Together</h1>
+      <ButtonTest count={count} onClick={handleClick} />{" "}
+      {/* Pass the state down from parent (`App`) to child (`ButtonTestLiftedState`) */}
+      <ButtonTest count={count} onClick={handleClick} />
       <ul>
-        {listCategories}
-        <li>{count}</li>
+        <li>
+          clicking button fires <code>onClick</code> handler
+        </li>
+        <li>
+          the <code>onClick</code> prop is set to the <code>handleClick</code>{" "}
+          function inside <code>myApp</code>
+        </li>
+        <li>
+          The <code>handleClick</code> function calls{" "}
+          <code>setCount(Count +1)</code> to increment the <code>count</code>{" "}
+          variable
+        </li>
+        <li>
+          The new <code>count</code> value is passed as a prop to each button,
+          showing the new value
+        </li>
       </ul>
-      <button onClick={handleClick}>increment</button>
-    </>
+      <hr />
+      <h1>Update Separately</h1>
+      <ButtonTestIndividualState />
+      <ButtonTestIndividualState />
+    </div>
   );
 }
-// const products = [
-//   { title: "Cabbage", isFruit: false, id: 1 },
-//   { title: "Garlic", isFruit: false, id: 2 },
-//   { title: "Apple", isFruit: true, id: 3 },
-// ];
 
-// export default function ShoppingList() {
-//   const listItems = products.map((product) => (
-//     <li
-//       key={product.id}
-//       style={{
-//         color: product.isFruit ? "magenta" : "darkgreen",
-//       }}
-//     >
-//       {product.title}
-//     </li>
+// export default function navCategories() {
+//   const [count, setCount] = useState(0);
+
+//   const listCategories = categories.map((category) => (
+//     <li key={category.name}>{category.name}</li>
 //   ));
 
-//   return <ul>{listItems}</ul>;
+//   function handleClick() {
+//     setCount(count + 1);
+//   }
+
+//   return (
+//     <>
+//       <ul>
+//         {listCategories}
+//         <li>{count}</li>
+//       </ul>
+//       <button onClick={handleClick}>increment</button>
+//     </>
+//   );
 // }
