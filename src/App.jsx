@@ -12,9 +12,9 @@ export default function App() {
   return (
     <div>
       <h1>Update Together</h1>
-      <ButtonTest count={count} onClick={handleClick} />{" "}
+      <ButtonTest count={count} onClickerooni={handleClick} />{" "}
       {/* Pass the state down from parent (`App`) to child (`ButtonTestLiftedState`) */}
-      <ButtonTest count={count} onClick={handleClick} />
+      <ButtonTest count={count} onClickerooni={handleClick} />
       <ul>
         <li>
           clicking button fires <code>onClick</code> handler

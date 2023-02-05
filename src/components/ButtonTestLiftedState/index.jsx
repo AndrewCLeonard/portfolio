@@ -8,12 +8,12 @@ const categories = [
   { name: "Portfolio", description: "Collection of my work" },
 ];
 
-export default function ButtonTest({ count, onClick }) { // read props from parent component
+export default function ButtonTest({ count, onClickerooni }) {
+  // read props from parent component
 
   return (
     <>
-      <button onClick={onClick}>increment {count}</button>
+      <button onClick={onClickerooni}>increment {count}</button>
     </>
   );
 }
-
