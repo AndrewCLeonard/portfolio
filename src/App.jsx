@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import ButtonTestIndividualState from "./components/ButtonTestIndividualState";
 import ButtonTest from "./components/ButtonTestLiftedState";
+import people from "../public/data/people";
 
 import Avatar from "./components/Avatar"; // Avatar Example: https://beta.reactjs.org/learn/passing-props-to-a-component#passing-props-to-a-component
+
+import Profile from "./components/ChallengeOne";
+import { getImageUrl } from "./components/utils";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +14,6 @@ export default function App() {
   function handleClick() {
     setCount(count + 1);
   }
-
 
   return (
     <>
@@ -76,11 +79,19 @@ export default function App() {
 
       {/*
 
-        Challenges https://beta.reactjs.org/learn/passing-props-to-a-component#challenges
+        Challenge 1 https://beta.reactjs.org/learn/passing-props-to-a-component#challenges
 
        */}
+
       <hr />
-      <h1>Challenge 1</h1>
+      <h1>Challenge 1: Without Map</h1>
+      {/* <Profile person={people[0]} /> */}
+
+      <hr />
+      <h1>Challenge 1: Using Map</h1>
+      {people.map((person) => {
+        return <Profile person={person} key={person.name} />;
+      })}
     </>
   );
 }

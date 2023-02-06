@@ -1,15 +1,13 @@
-// https://beta.reactjs.org/learn/passing-props-to-a-component#challenges
-
 import { getImageUrl } from "../utils";
 
-export default function profile({ person, width = 70, height = 70 }) {
+export default function Profile({ person, width = 70, height = 70 }) {
   return (
     <>
       <section className="profile">
         <h2>{person.name}</h2>
         <img
           className="avatar"
-          src={getImageUrl(person.imageId)}
+          src={getImageUrl(person)}
           alt={person.name}
         />
         <ul>
@@ -18,8 +16,11 @@ export default function profile({ person, width = 70, height = 70 }) {
             {person.profession}
           </li>
           <li>
-            <b>Awards: {awards.length} </b>({person.awards.map((award) => {})})
+            <b>Awards: {person.awards.length} </b>
           </li>
+            <ul>
+              
+            </ul>
           <li>
             <b>Discovered: </b>
             {person.discovered}
