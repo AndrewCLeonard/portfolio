@@ -1,5 +1,9 @@
 ## React lessons learned
 
+## Diagram
+
+https://miro.com/app/board/o9J_luTM0tA=/
+
 ### Array.prototype.map()
 
 The [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) show the map method with curly braces:
