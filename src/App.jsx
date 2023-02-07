@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import ButtonTestIndividualState from "./components/ButtonTestIndividualState";
-import ButtonTest from "./components/ButtonTestLiftedState";
-import people from "../public/data/people";
+import ButtonTestLiftedState from "./components/ButtonTestLiftedState";
+import people from "../data/people";
 
 import Avatar from "./components/Avatar"; // Avatar Example: https://beta.reactjs.org/learn/passing-props-to-a-component#passing-props-to-a-component
-
+import Card from "./components/Card-Challenge-3";
 import Profile from "./components/ChallengeOne";
-import { getImageUrl } from "./components/utils";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -19,9 +18,9 @@ export default function App() {
     <>
       <div>
         <h1>Update Together</h1>
-        <ButtonTest count={count} onClickerooni={handleClick} />{" "}
+        <ButtonTestLiftedState count={count} onClickerooni={handleClick} />{" "}
         {/* Pass the state down from parent (`App`) to child (`ButtonTestLiftedState`) */}
-        <ButtonTest count={count} onClickerooni={handleClick} />
+        <ButtonTestLiftedState count={count} onClickerooni={handleClick} />
         <ul>
           <li>
             clicking button fires <code>onClick</code> handler
@@ -84,14 +83,36 @@ export default function App() {
        */}
 
       <hr />
-      <h1>Challenge 1: Without Map</h1>
-      {/* <Profile person={people[0]} /> */}
-
-      <hr />
-      <h1>Challenge 1: Using Map</h1>
+      <h1>Challenge 1 (using map)</h1>
       {people.map((person) => {
         return <Profile person={person} key={person.name} />;
       })}
+      <br />
+      <hr />
+      {/*
+
+        Challenge 2 https://beta.reactjs.org/learn/passing-props-to-a-component#challenges
+
+       */}
+      <h1>Challenge 2</h1>
+      <Avatar
+        size={160}
+        person={{
+          name: "Gregorio Y. Zara",
+          imageId: "7vQD0fP",
+        }}
+      />
+
+      {/*
+
+        Challenge 3 https://beta.reactjs.org/learn/passing-props-to-a-component#challenges
+
+       */}
+
+       <Card>
+        <Avatar
+       </Card>
+       
     </>
   );
 }

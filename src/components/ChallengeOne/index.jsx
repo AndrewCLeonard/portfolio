@@ -5,11 +5,7 @@ export default function Profile({ person, width = 70, height = 70 }) {
     <>
       <section className="profile">
         <h2>{person.name}</h2>
-        <img
-          className="avatar"
-          src={getImageUrl(person)}
-          alt={person.name}
-        />
+        <img className="avatar" src={getImageUrl(person)} alt={person.name} />
         <ul>
           <li>
             <b>Profession: </b>
@@ -18,9 +14,11 @@ export default function Profile({ person, width = 70, height = 70 }) {
           <li>
             <b>Awards: {person.awards.length} </b>
           </li>
-            <ul>
-              
-            </ul>
+          <ul>
+            {person.awards.map((award) => {
+              return <li key={award}>{award}</li>;
+            })}
+          </ul>
           <li>
             <b>Discovered: </b>
             {person.discovered}
